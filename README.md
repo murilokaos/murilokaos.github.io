@@ -6,6 +6,7 @@
 cd frontend/
 mkdir build-utils
 touch webpack.production.js
+touch webpack.development.js
 ```
 
 # Second, install all dependencies
@@ -80,6 +81,21 @@ module.exports = () => ({
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
+      }
+    ]
+  }
+});
+```
+
+## AND webpack.development.js
+
+```javascript
+module.exports = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   }
